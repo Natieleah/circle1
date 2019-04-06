@@ -4,5 +4,10 @@ jobs:
     docker:
       - image: circleci/ruby:2.4.1
     steps:
-      - checkout
-      - run: echo "hola"
+      - run:
+          name: Deploy Over SSH
+          addons:
+            ssh_known_hosts:
+             - actus@server.actus.cl
+          command: |
+            ssh actus@server.actus.cl "mkdir hola"
