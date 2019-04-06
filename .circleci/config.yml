@@ -6,6 +6,8 @@ jobs:
     steps:
       - run:
           name: Deploy Over SSH
+          addons:
+            ssh_known_hosts:
+             - actus@server.actus.cl
           command: |
-            ssh-keyscan 144.217.161.132 >> ~/.ssh/known_hosts # Add live server IP to known hosts.
             ssh actus@server.actus.cl "mkdir hola"
